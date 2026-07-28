@@ -12,24 +12,15 @@ const ADMIN_EMAILS = [
 
 onAuthStateChanged(auth, (user) => {
 
-    if (!user) {
-        window.location.href = "index.html";
-        return;
-    }
+    if (!user) return;
 
     if (ADMIN_EMAILS.includes(user.email)) {
 
-        console.log("Admin Verified");
-
-        // Already on admin page? Nothing to do.
-        if (!window.location.pathname.endsWith("admin.html")) {
-            window.location.href = "./admin.html";
-        }
+        window.location.href = "./admin.html";
 
     } else {
 
-        alert("Access Denied");
-        window.location.href = "index.html";
+        window.location.href = "./index.html";
 
     }
 
