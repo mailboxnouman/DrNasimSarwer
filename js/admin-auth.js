@@ -10,18 +10,25 @@ const ADMIN_EMAILS = [
     "dr.nasim.sarwer@gmail.com"
 ];
 
-onAuthStateChanged(auth, (user) => {
 
-    if (!user) return;
+onAuthStateChanged(auth, (user)=>{
 
-    if (ADMIN_EMAILS.includes(user.email)) {
-
-        window.location.href = "./admin.html";
-
-    } else {
-
-        window.location.href = "./index.html";
-
+    if(!user){
+        window.location.href = "index.html";
+        return;
     }
+
+
+    if(!ADMIN_EMAILS.includes(user.email)){
+
+        alert("Access Denied");
+
+        window.location.href = "index.html";
+
+        return;
+    }
+
+
+    console.log("Admin Verified");
 
 });
