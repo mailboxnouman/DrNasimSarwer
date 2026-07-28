@@ -1,16 +1,13 @@
-import {auth} from "./firebase-config.js";
-
+import { auth } from "./firebase-config.js";
 
 import {
-GoogleAuthProvider,
-signInWithPopup,
-signOut,
-onAuthStateChanged
+    GoogleAuthProvider,
+    signInWithPopup,
+    signOut,
+    onAuthStateChanged
 
-} from 
+} from
 "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
-
-
 
 const provider = new GoogleAuthProvider();
 
@@ -21,69 +18,54 @@ const ADMIN_EMAILS = [
 ];
 
 document.querySelectorAll(".authButton")
-.forEach(btn=>{
+.forEach(btn => {
 
+    btn.onclick = async () => {
 
-btn.onclick=async()=>{
+        // Logout
+        if (auth.currentUser) {
 
+            await signOut(auth);
+            location.reload();
+            return;
 
-if(auth.currentUser){
+        }
 
-await signOut(auth);
+        // Login
+        const result = await signInWithPopup(auth, provider);
 
-location.reload();
+        // Redirect ONLY once after login
+        if (ADMIN_EMAILS.includes(result.user.email)) {
 
-}
+            window.location.href = "./admin.html";
 
-else{
+        } else {
 
+            location.reload();
 
-await signInWithPopup(
-auth,
-provider
-);
+        }
 
-
-location.reload();
-
-
-}
-
-
-};
-
-
+    };
 
 });
-
-
 
 onAuthStateChanged(auth, user => {
 
     document.querySelectorAll(".authButton")
     .forEach(btn => {
 
-        if(user){
+        if (user) {
 
             btn.innerHTML =
-            `<i class="fa fa-user"></i> Logout - ${user.email}`;
+                `<i class="fa fa-user"></i> Logout - ${user.email}`;
 
-        }else{
+        } else {
 
             btn.innerHTML =
-            `<i class="fa fa-user"></i> Login`;
+                `<i class="fa fa-user"></i> Login`;
 
         }
 
     });
-
-    // Admin auto redirect
-    if (
-        user &&
-        ADMIN_EMAILS.includes(user.email) &&
-        !window.location.pathname.endsWith("admin.html")
-    ) {
-        window.location.replace("./admin.html");
-    }
 
 });
