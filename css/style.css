@@ -2486,7 +2486,13 @@ ol {
 	margin-right: 6px;
 	margin-bottom: 10px;
 }
-
+.recent-info span{
+	color: gray;
+}
+div.recent-info{
+	margin-left: 5px;
+	margin-top: 15px;
+}
 /*---------------------
   Blog Details Hero
 -----------------------*/

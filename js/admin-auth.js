@@ -4,7 +4,11 @@ import {
 } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
 
 
-const ADMIN_EMAIL = "mailboxnouman@gmail.com";
+const ADMIN_EMAILS = [
+    "mailboxnouman@gmail.com",
+    "dr.nasim.sarwar@gmail.com",
+    "dr.nasim.sarwer@gmail.com"
+];
 
 
 onAuthStateChanged(auth, (user)=>{
@@ -15,7 +19,7 @@ onAuthStateChanged(auth, (user)=>{
     }
 
 
-    if(user.email !== ADMIN_EMAIL){
+    if(!ADMIN_EMAILS.includes(user.email)){
 
         alert("Access Denied");
 
