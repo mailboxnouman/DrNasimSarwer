@@ -10,25 +10,27 @@ const ADMIN_EMAILS = [
     "dr.nasim.sarwer@gmail.com"
 ];
 
+onAuthStateChanged(auth, (user) => {
 
-onAuthStateChanged(auth, (user)=>{
-
-    if(!user){
+    if (!user) {
         window.location.href = "index.html";
         return;
     }
 
+    if (ADMIN_EMAILS.includes(user.email)) {
 
-    if(!ADMIN_EMAILS.includes(user.email)){
+        console.log("Admin Verified");
+
+        // Already on admin page? Nothing to do.
+        if (!window.location.pathname.endsWith("admin.html")) {
+            window.location.href = "./admin.html";
+        }
+
+    } else {
 
         alert("Access Denied");
-
         window.location.href = "index.html";
 
-        return;
     }
-
-
-    console.log("Admin Verified");
 
 });
