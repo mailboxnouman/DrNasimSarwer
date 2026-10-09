@@ -10,3 +10,21 @@
     line-height: 150%;
     letter-spacing: 0.5px;
 }
+.breadcrumb-section {
+  padding: 10px;
+}
+.breadcrumb-section h2{
+  font-size: 30px;
+}
+section.blog{
+  padding-top: 40px;
+}
+section.blog h2{
+  font-size: 25px;
+}
+section #article-content {
+  font-size: 18px;
+}
+.blog__sidebar {
+  display: none;
+}

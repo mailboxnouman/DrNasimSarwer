@@ -6,7 +6,6 @@ import {
 
 const ADMIN_EMAILS = [
     "mailboxnouman@gmail.com",
-    "dr.nasim.sarwar@gmail.com",
     "drnasimsarwer@gmail.com"
 ];
 

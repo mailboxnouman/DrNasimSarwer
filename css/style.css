@@ -3206,6 +3206,9 @@ div.recent-info{
 	.hero__item {
 		padding-left: 30px;
 	}
+	.hero__text h2 {
+		font-size: 30px;
+	}
 	.hero__categories {
 		margin-bottom: 30px;
 	}
