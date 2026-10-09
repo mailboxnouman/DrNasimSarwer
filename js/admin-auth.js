@@ -5,9 +5,9 @@ import {
 
 
 const ADMIN_EMAILS = [
-    "mailboxnouman@gmail.com",
+    // "mailboxnouman@gmail.com",
     "dr.nasim.sarwar@gmail.com",
-    "dr.nasim.sarwer@gmail.com"
+    "drnasimsarwer@gmail.com"
 ];
 
 
