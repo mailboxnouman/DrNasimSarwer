@@ -2974,6 +2974,9 @@ div.recent-info{
 /* Tablet Device = 768px */
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
+	#admin-favorite-list{
+		display: none;
+	}
 	.hero__categories {
 		margin-bottom: 30px;
 	}
@@ -3197,12 +3200,36 @@ div.recent-info{
 /* Wide Mobile = 480px */
 
 @media only screen and (max-width: 767px) {
+	#admin-favorite-list{
+		display: none;
+	}
 	.categories{
 		display: none;
 	}
 	#scrollUp{
-		padding-top: 0px;
+		padding-top: 20px;
 	}
+	.featured__controls{
+		margin-bottom: 20px;
+	}
+	.breadcrumb-section {
+		padding: 10px;
+	  }
+	  .breadcrumb-section h2{
+		font-size: 30px;
+	  }
+	  section.blog{
+		padding-top: 40px;
+	  }
+	  section.blog h2{
+		font-size: 25px;
+	  }
+	  section #article-content {
+		font-size: 15px;
+	  }
+	  .blog__sidebar {
+		display: none;
+	  }
 	.hero__item {
 		padding-left: 30px;
 	}

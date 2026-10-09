@@ -1,30 +1,14 @@
-@font-face {
-    font-family: nafees_web_naskhshipped;
-    src: url(/fonts/nafees_web_naskhshipped.ttf);
-  }
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400..700&display=swap');
+
 #article-content {
-    font-family: nafees_web_naskhshipped;
+  font-family: "Noto Nastaliq Urdu", serif;
     outline: none !important;
     color: black;
     font-size: 24px;
-    line-height: 150%;
-    letter-spacing: 0.5px;
+    line-height: 220%;
+    letter-spacing: 1.5px;
 }
-.breadcrumb-section {
-  padding: 10px;
-}
-.breadcrumb-section h2{
-  font-size: 30px;
-}
-section.blog{
-  padding-top: 40px;
-}
-section.blog h2{
-  font-size: 25px;
-}
-section #article-content {
-  font-size: 18px;
-}
-.blog__sidebar {
-  display: none;
+section .col-lg-8  {
+  text-align: center;
 }

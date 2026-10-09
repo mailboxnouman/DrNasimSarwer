@@ -11,6 +11,7 @@ const ADMIN_EMAILS = [
 
 
 onAuthStateChanged(auth, (user)=>{
+    
 
     if(!user){
         window.location.href = "index.html";
@@ -26,7 +27,6 @@ onAuthStateChanged(auth, (user)=>{
 
         return;
     }
-
 
     console.log("Admin Verified");
 
