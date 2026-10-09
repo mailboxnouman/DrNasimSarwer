@@ -5,7 +5,7 @@ import {
 
 
 const ADMIN_EMAILS = [
-    // "mailboxnouman@gmail.com",
+    "mailboxnouman@gmail.com",
     "dr.nasim.sarwar@gmail.com",
     "drnasimsarwer@gmail.com"
 ];
@@ -21,7 +21,7 @@ onAuthStateChanged(auth, (user)=>{
 
     if(!ADMIN_EMAILS.includes(user.email)){
 
-        alert("Access Denied");
+        // alert("Access Denied");
 
         window.location.href = "index.html";
 

@@ -3197,6 +3197,15 @@ div.recent-info{
 /* Wide Mobile = 480px */
 
 @media only screen and (max-width: 767px) {
+	.categories{
+		display: none;
+	}
+	#scrollUp{
+		padding-top: 0px;
+	}
+	.hero__item {
+		padding-left: 30px;
+	}
 	.hero__categories {
 		margin-bottom: 30px;
 	}
@@ -3453,8 +3462,15 @@ div.recent-info{
 }
 
 /* Small Device = 320px */
-
+	
 @media only screen and (max-width: 479px) {
+	.hero__search__phone {
+		display: none;
+	}
+	.hero__uploadBtn{
+		display: block;
+	}
+	
 	.hero__search__form form .hero__search__categories {
 		display: none;
 	}
