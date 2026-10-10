@@ -60,6 +60,28 @@
         allowParentLinks: true
     });
 
+     /*------------------
+		Date
+	--------------------*/
+    function updateIslamicDate() {
+        const dateElements = document.querySelectorAll(".islamicDate");
+    
+        const islamicDate = new Intl.DateTimeFormat(
+            "ur-PK-u-ca-islamic-umalqura",
+            {
+                day: "numeric",
+                month: "long",
+                year: "numeric",
+                calendar: "islamic-umalqura"
+            }
+        ).format(new Date());
+    
+        dateElements.forEach((element) => {
+            element.textContent = islamicDate;
+        });
+    }
+    
+    updateIslamicDate();
     /*-----------------------
         Categories Slider
     ------------------------*/

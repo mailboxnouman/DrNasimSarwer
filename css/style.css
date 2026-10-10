@@ -2933,6 +2933,9 @@ div.recent-info{
 	font-size: 18px;
 	letter-spacing: 2px;
 }
+.footer__hide{
+	display: none;
+}
 
 /*--------------------------------- Responsive Media Quaries -----------------------------*/
 
