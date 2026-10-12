@@ -70,7 +70,7 @@
         <nav  class="humberger__menu__nav mobile-menu">
             <ul>
                 <li><a href="./index.html">مرکزی صفحہ</a></li>
-                <li><a href="./shop-grid.html">قرآن</a></li>
+                <li><a href="./quran.html">قرآن</a></li>
                 <li><a href="./shop-grid.html">حدیث</a></li>
                 <li><a href="./blog.html">بلاگ</a>
                     <!-- <ul class="header__menu__dropdown">
@@ -148,7 +148,7 @@
                     <nav class="header__menu">
                         <ul>
                             <li ><a href="./index.html">مرکزی صفحہ</a></li>
-                            <li><a href="./shop-grid.html">قرآن</a></li>
+                            <li><a href="./quran.html">قرآن</a></li>
                             <li><a href="./shop-grid.html">حدیث</a></li>
                             <li><a href="./blog.html">بلاگ</a>
                                 <!-- <ul class="header__menu__dropdown">
@@ -193,19 +193,8 @@
                             <i class="fa fa-bars"></i>
                             <span>منتخب مضامین</span>
                         </div>
-                        <ul>
-                            <li><a href="#">اصلاحی مضمون 01</a></li>
-                            <li><a href="#">اصلاحی مضمون 02</a></li>
-                            <li><a href="#">اصلاحی مضمون 03</a></li>
-                            <li><a href="#">اصلاحی مضمون 04</a></li>
-                            <li><a href="#">اصلاحی مضمون 05</a></li>
-                            <li><a href="#">اصلاحی مضمون 06</a></li>
-                            <li><a href="#">اصلاحی مضمون 07</a></li>
-                            <li><a href="#">اصلاحی مضمون 08</a></li>
-                            <li><a href="#">اصلاحی مضمون 09</a></li>
-                            <li><a href="#">اصلاحی مضمون 10</a></li>
-                            <li><a href="#">اصلاحی مضمون 11</a></li>
-                        </ul>
+                        <ul id="admin-favorite-list" style="display: none;">
+                            </ul>
                     </div>
                 </div>
                 <div class="col-lg-9">
@@ -397,7 +386,7 @@
             <div class="col-lg-12">
                 <div class="footer__copyright">
                     <div class="footer__copyright__text"><p>
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This website is made by <a href="https://www.linkedin.com/in/muhammadnoumanofficial/" target="_blank">Muhammad Nouman</a></p>
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved</p>
 </div>
                     <!-- <div class="footer__copyright__payment"><img src="img/payment-item.png" alt=""></div>
                 </div> -->
@@ -421,6 +410,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 <script src="js/message.js"></script>
 <!-- <script src="js/log-in-out.js"></script> -->
 <script type="module" src="js/firebase-auth.js"></script>
+<script type="module" src="js/fetch-favorite.js"></script>
 
 
 </body>
