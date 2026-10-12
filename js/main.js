@@ -64,37 +64,23 @@
 		Date
 	--------------------*/
    
-function updateIslamicDate() {
-    const dateElements = document.querySelectorAll(".islamicDate");
+function updateDate() {
+    const dateElements = document.querySelectorAll(".date");
 
-    const options = {
+    const currentDate = new Intl.DateTimeFormat("en-GB", {
         day: "numeric",
         month: "long",
         year: "numeric",
-        timeZone: "Asia/Karachi",
-        numberingSystem: "arab"
-    };
-
-    let islamicDate;
-
-    try {
-        islamicDate = new Intl.DateTimeFormat(
-            "ur-PK-u-ca-islamic-umalqura",
-            options
-        ).format(new Date());
-    } catch (error) {
-        islamicDate = new Intl.DateTimeFormat(
-            "en-US-u-ca-islamic-umalqura",
-            options
-        ).format(new Date());
-    }
+        timeZone: "Asia/Karachi"
+    }).format(new Date());
 
     dateElements.forEach((element) => {
-        element.textContent = islamicDate;
+        element.textContent = currentDate;
     });
 }
 
-updateIslamicDate();
+updateDate();
+
 
     /*-----------------------
         Categories Slider
