@@ -63,25 +63,39 @@
      /*------------------
 		Date
 	--------------------*/
-    function updateIslamicDate() {
-        const dateElements = document.querySelectorAll(".islamicDate");
-    
-        const islamicDate = new Intl.DateTimeFormat(
+   
+function updateIslamicDate() {
+    const dateElements = document.querySelectorAll(".islamicDate");
+
+    const options = {
+        day: "numeric",
+        month: "long",
+        year: "numeric",
+        timeZone: "Asia/Karachi",
+        numberingSystem: "arab"
+    };
+
+    let islamicDate;
+
+    try {
+        islamicDate = new Intl.DateTimeFormat(
             "ur-PK-u-ca-islamic-umalqura",
-            {
-                day: "numeric",
-                month: "long",
-                year: "numeric",
-                calendar: "islamic-umalqura"
-            }
+            options
         ).format(new Date());
-    
-        dateElements.forEach((element) => {
-            element.textContent = islamicDate;
-        });
+    } catch (error) {
+        islamicDate = new Intl.DateTimeFormat(
+            "en-US-u-ca-islamic-umalqura",
+            options
+        ).format(new Date());
     }
-    
-    updateIslamicDate();
+
+    dateElements.forEach((element) => {
+        element.textContent = islamicDate;
+    });
+}
+
+updateIslamicDate();
+
     /*-----------------------
         Categories Slider
     ------------------------*/
