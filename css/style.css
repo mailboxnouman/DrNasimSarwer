@@ -3203,6 +3203,34 @@ div.recent-info{
 /* Wide Mobile = 480px */
 
 @media only screen and (max-width: 767px) {
+	
+	.hero__search__phone {
+		display: none;
+	}
+	
+	.hero__uploadBtn {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 100%;
+		float: none;
+		margin: 0;
+		text-align: center;
+	}
+	.hero__uploadBtn .site-btn {
+		display: inline-flex;
+		justify-content: center;
+		align-items: center;
+		text-align: center;
+	
+		/* Responsive horizontal and vertical padding */
+		padding: clamp(10px, 3vw, 16px)
+				 clamp(24px, 8vw, 60px);
+	
+		max-width: 100%;
+		box-sizing: border-box;
+		white-space: nowrap;
+	}
 	#admin-favorite-list{
 		display: none;
 	}
@@ -3497,9 +3525,7 @@ div.recent-info{
 /* Small Device = 320px */
 	
 @media only screen and (max-width: 479px) {
-	.hero__search__phone {
-		display: none;
-	}
+	
 	.hero__uploadBtn{
 		display: block;
 	}
