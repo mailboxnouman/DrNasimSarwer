@@ -1,3 +1,4 @@
+
 import { auth } from "./firebase-config.js";
 
 import {
@@ -5,67 +6,103 @@ import {
     signInWithPopup,
     signOut,
     onAuthStateChanged
-
-} from
-"https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
+} from "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
 
 const provider = new GoogleAuthProvider();
 
 const ADMIN_EMAILS = [
     "mailboxnouman@gmail.com",
-    "dr.nasim.sarwar@gmail.com",
-    "dr.nasim.sarwer@gmail.com"
+    "drnasimsarwer@gmail.com"
 ];
 
-document.querySelectorAll(".authButton")
-.forEach(btn => {
+function isAdmin(user) {
+    return user && ADMIN_EMAILS.some(
+        email => email.toLowerCase() === user.email?.toLowerCase()
+    );
+}
+
+// Login / Logout buttons
+document.querySelectorAll(".authButton").forEach(btn => {
 
     btn.onclick = async () => {
+        try {
+            // Logout
+            if (auth.currentUser) {
+                await signOut(auth);
+                window.location.reload();
+                return;
+            }
 
-        // Logout
-        if (auth.currentUser) {
+            // Login
+            const result = await signInWithPopup(auth, provider);
 
-            await signOut(auth);
-            location.reload();
-            return;
+            if (isAdmin(result.user)) {
+                window.location.href = "./admin.html";
+            } else {
+                window.location.reload();
+            }
 
+        } catch (error) {
+            console.error("Authentication error:", error);
+            alert("Login failed. Please try again.");
         }
-
-        // Login
-        const result = await signInWithPopup(auth, provider);
-
-        // Redirect ONLY once after login
-        if (ADMIN_EMAILS.includes(result.user.email)) {
-
-            window.location.href = "./admin.html";
-
-        } else {
-
-            location.reload();
-
-        }
-
     };
 
 });
 
+// Update login button and admin panel button
 onAuthStateChanged(auth, user => {
 
-    document.querySelectorAll(".authButton")
-    .forEach(btn => {
+    // Login / Logout button text
+    document.querySelectorAll(".authButton").forEach(btn => {
 
         if (user) {
-
             btn.innerHTML =
                 `<i class="fa fa-user"></i> Logout - ${user.email}`;
-
         } else {
-
             btn.innerHTML =
                 `<i class="fa fa-user"></i> Login`;
-
         }
 
     });
+
+    // Replace phone section with Admin Panel button
+    const container = document.getElementById("contactOrAdmin");
+
+    if (!container) return;
+
+    if (isAdmin(user)) {
+
+        container.className = "hero__search__phone hero__uploadBtn";
+
+        container.innerHTML = `
+            <button
+                class="site-btn"
+                id="adminPanelBtn"
+                type="button">
+                ایڈمن پینل
+            </button>
+        `;
+
+        document.getElementById("adminPanelBtn").onclick = () => {
+            window.location.href = "./admin.html";
+        };
+
+    } else {
+
+        // Restore the original phone section for normal users
+        container.className = "hero__search__phone";
+
+        container.innerHTML = `
+            <div class="hero__search__phone__icon">
+                <i class="fa fa-phone"></i>
+            </div>
+            <div class="hero__search__phone__text">
+                <h5>+923222138421</h5>
+                <span>رابطہ کریں</span>
+            </div>
+        `;
+
+    }
 
 });
