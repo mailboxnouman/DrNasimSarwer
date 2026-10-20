@@ -53,7 +53,7 @@ return;
 
 
 
-if(currentUser.email !== "mailboxnouman@gmail.com"){
+if(currentUser.email !== "mailboxnouman@gmail.com","drnasimsarwer@gmail.com"){
 
 alert("صرف ایڈمن مضمون اپلوڈ کرسکتا ہے");
 
