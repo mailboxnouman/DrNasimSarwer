@@ -144,15 +144,14 @@ document
             // Success Message
             alert("مضمون کامیابی سے اپلوڈ ہوگیا");
 
-            e.target.reset();
+            // Redirect to Blog Page
+            window.location.href = "./blog.html";
 
         } catch (err) {
 
             console.error("Article Upload Error:", err);
 
-            alert(
-                "مضمون اپلوڈ نہیں ہوسکا۔ براہ کرم Console میں error چیک کریں۔"
-            );
+            
 
         }
 
